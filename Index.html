@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Aquafreshe | Hydration Intelligence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- MILITARY-GRADE CSP (static-safe) -->
+  <meta http-equiv="Content-Security-Policy"
+    content="
+      default-src 'none';
+      script-src 'self' https://cdn.tailwindcss.com https://challenges.cloudflare.com;
+      style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
+      img-src 'self' data:;
+      connect-src 'self';
+      frame-src https://challenges.cloudflare.com;
+      form-action 'self';
+      base-uri 'none';
+      frame-ancestors 'none';
+      upgrade-insecure-requests;
+    ">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Config -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            tomato: '#ff6347'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="bg-black text-white overflow-x-hidden">
+
+<!-- HERO -->
+<section id="hero"
+  class="min-h-screen flex items-center justify-center text-center
+         bg-gradient-to-br from-red-500 via-yellow-400 via-green-400 via-cyan-400 via-blue-500 to-purple-600
+         bg-[length:400%_400%] animate-[gradient_12s_ease_infinite]">
+
+  <div class="bg-white/10 backdrop-blur-xl rounded-3xl p-10 max-w-2xl shadow-2xl">
+    <h1 class="text-4xl md:text-5xl font-extrabold">
+      Aquafreshe<br>
+      <span class="text-tomato">Hydration That Elevates Life</span>
+    </h1>
+
+    <p class="mt-4 text-lg opacity-90">
+      Most people underestimate water. Smart people don’t.
+    </p>
+
+    <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+      <button onclick="APP.nextTip()"
+        class="px-6 py-3 rounded-full font-bold bg-black text-white hover:scale-105 transition">
+        Change My Health Tip
+      </button>
+
+      <button onclick="APP.toggleVariant()"
+        class="px-6 py-3 rounded-full font-bold bg-tomato text-black hover:scale-105 transition">
+        Switch Perspective
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- SVG WAVE (math-based visual rhythm) -->
+<svg viewBox="0 0 1440 120" preserveAspectRatio="none" class="block w-full">
+  <path
+    d="M0,60 C120,20 240,100 360,60 480,20 600,100 720,60
+       840,20 960,100 1080,60 1200,20 1320,100 1440,60 L1440,0 L0,0 Z"
+    fill="rgba(255,255,255,0.08)" />
+</svg>
+
+<!-- TIP -->
+<section class="py-20 text-center">
+  <h2 class="text-3xl font-bold mb-4">Today’s Insight</h2>
+  <p id="tip" class="text-xl max-w-xl mx-auto opacity-90 transition-opacity duration-300"></p>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="py-20 bg-white/5 text-center">
+  <h2 class="text-3xl font-bold">Weekly Hydration Intelligence</h2>
+  <p class="opacity-80 mt-2">Tiny habits. Massive health shifts.</p>
+
+  <form onsubmit="APP.submit(event)"
+        class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+    <input type="email" required
+      placeholder="Your email address"
+      class="px-4 py-3 rounded-lg text-black w-72">
+
+    <!-- Turnstile placeholder -->
+    <input type="hidden" id="cf-token">
+
+    <button
+      class="px-6 py-3 rounded-lg font-bold bg-tomato text-black hover:scale-105 transition">
+      Join Circle
+    </button>
+  </form>
+
+  <div class="cf-turnstile mt-4"
+       data-sitekey="YOUR_TURNSTILE_SITE_KEY"
+       data-callback="APP.turnstile"></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="py-6 text-center text-sm bg-black">
+  <p>Contact: <a href="mailto:talk2us@aquafresh.co.ke" class="underline">talk2us@aquafresh.co.ke</a></p>
+  <p>Developed by <span class="text-tomato font-bold">jaydaplug</span> 🍅</p>
+</footer>
+
+<!-- Scripts -->
+<script src="script.js"></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+<!-- Tailwind animation -->
+<style>
+@keyframes gradient {
+  0% {background-position:0% 50%}
+  50% {background-position:100% 50%}
+  100% {background-position:0% 50%}
+}
+</style>
+
+</body>
+        </html>
